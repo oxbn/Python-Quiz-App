@@ -1,5 +1,36 @@
 {
-    "What is avogadro's number?": "6.02x10^23",
-    "What is the capital of France?": "Paris",
-    "What is the largest mammal?": "Blue whale"
-}
+  "questions": [
+    {
+      "type": 0,
+      "question": "What is Avogadro's number?",
+      "answer": "6.02x10^23"
+    },
+    {
+      "type": 1,
+      "question": "What is the capital of France?",
+      "options": [
+        "Paris",
+        "Rome",
+        "London",
+        "Berlin"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "type": 0,
+      "question": "What is the largest mammal?",
+      "answer": "Blue whale"
+    },
+    {
+      "type": 1,
+      "question": "Which planet is known as the Red Planet?",
+      "options": [
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn"
+      ],
+      "correctAnswer": 1
+    }
+  ]
+}   
