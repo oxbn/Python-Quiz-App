@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { text-align: center; }
+        .score { text-align: center; font-size: 1.3rem; margin-bottom: 2rem; }
+        .question { border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+        .question p { margin: 0.3rem 0; }
+        .prompt { font-weight: bold; }
+        .correct { color: #1a7f37; }
+        .incorrect { color: #cf222e; }
+        a { display: inline-block; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <p class="score">You scored <strong>{{ score }} / {{ total }}</strong> ({{ percentage }}%)</p>
+
+    {% for r in results %}
+    <div class="question">
+        <p class="prompt">{{ loop.index }}. {{ r.question }}</p>
+        <p class="{{ 'correct' if r.is_correct else 'incorrect' }}">
+            Your answer: {{ r.submitted }}
+            {% if r.is_correct %}✓{% else %}✗{% endif %}
+        </p>
+        {% if not r.is_correct %}
+        <p class="correct">Correct answer: {{ r.correct_answer }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <a href="/">← Take the quiz again</a>
+</body>
+</html>
