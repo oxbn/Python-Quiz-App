@@ -1,0 +1,95 @@
+/* =========================================================
+   Starter palette — change a value here and it updates
+   everywhere it's used via var(--name). This is the easiest
+   way to re-theme the whole site. Make these "cooler"!
+   ========================================================= */
+:root {
+    --bg:   #e3e3e3;
+    --card: #ffffff;
+    --accent: #4f46e5;   /* used by buttons/links — try an indigo like #4f46e5 */
+    --text: #000000;
+    --muted: #27284d;
+    --border: #dddddd;
+    --correct: #1baa43;
+    --incorrect: #ec2432;
+}
+
+/* ---------- Layout ---------- */
+body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background: var(--bg);
+    color: var(--text);
+    /* TODO: try line-height: 1.6 and a nicer font stack */
+}
+
+h1 { text-align: center; }
+
+/* ---------- Question / result cards ---------- */
+.question {
+    /* border: 1px solid var(--border);
+    border-radius: 8px; */
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--card);
+    border-radius: 15px;
+
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06),
+    0px 0px 7px rgba(0, 0, 0, 0.12),
+    0px 0px 16px rgba(0, 0, 0, 0.18),
+    0px 0px 28px rgba(0, 0, 0, 0.24),
+    0px 0px 44px rgba(0, 0, 0, 0.30);
+
+    /* TODO: swap the border for a soft box-shadow to feel modern */
+}
+
+.prompt { font-weight: bold; }
+.question p { margin: 0.3rem 0; }
+
+.type-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+/* ---------- Options ---------- */
+ul { list-style: none; padding-left: 0; }
+li { margin: 0.25rem 0; }
+
+input[type="text"] {
+    padding: 0.4rem;
+    width: 60%;
+}
+
+/* TODO: make each option label a full-width clickable row
+   that highlights on hover (display: block; padding; :hover) */
+
+/* ---------- Submit button ---------- */
+button {
+    border: 1px solid var(--border);
+    font-size: 1.5rem;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--card);
+    /* TODO: give me a real look — background: var(--accent); color: #fff;
+       padding; border: none; border-radius; cursor: pointer; and a
+       :hover transition */
+}
+
+/* ---------- Results page ---------- */
+.score {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.correct { color: var(--correct); }
+.incorrect { color: var(--incorrect); }
+
+a {
+    display: inline-block;
+    margin-top: 1rem;
+}
