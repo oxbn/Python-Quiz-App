@@ -4,15 +4,15 @@
    way to re-theme the whole site. Make these "cooler"!
    ========================================================= */
 :root {
-    --bg:   #eedba7;
-    --card: rgba(255, 255, 255, 0.341);
-    --inputbox: rgb(0, 0, 0);
-    --accent: #4f46e5;   /* used by buttons/links — try an indigo like #4f46e5 */
-    --text: #000000;
-    --muted: #b4b4b4;
-    --border: #dddddd;
-    --correct: #1baa43;
-    --incorrect: #ec2432;
+    --bg:        #1e1b2e;
+    --card:      rgba(255, 255, 255, 0.06);
+    --inputbox:  #ffffff;
+    --accent:    #818cf8;   /* soft indigo */
+    --text:      #f5f5f7;
+    --muted:     #9ca3af;
+    --border:    #3a3550;
+    --correct:   #34d399;
+    --incorrect: #f87171;
 }
 
 /* ---------- Layout ---------- */
@@ -38,11 +38,11 @@ h1 { text-align: center; }
     background: var(--card);
     border-radius: 15px;
 
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06),
-    0px 0px 7px rgba(0, 0, 0, 0.12),
-    0px 0px 16px rgba(0, 0, 0, 0.18),
-    0px 0px 28px rgba(0, 0, 0, 0.24),
-    0px 0px 44px rgba(0, 0, 0, 0.30);
+    box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.04),
+    0px 0px 7px rgba(0, 0, 0, 0.25),
+    0px 0px 16px rgba(0, 0, 0, 0.35),
+    0px 0px 28px rgba(0, 0, 0, 0.45),
+    0px 0px 44px rgba(0, 0, 0, 0.55);
 
     /* TODO: swap the border for a soft box-shadow to feel modern */
 }
@@ -76,26 +76,23 @@ button {
     font-size: 1.5rem;
     padding: 1rem 1.25rem;
     margin-bottom: 1rem;
-    background: var(--card);
 
+    color: #fff;
+    border: none;
     border-radius: 15px;
+    cursor: pointer;
 
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.06),
-    0px 0px 7px rgba(0, 0, 0, 0.12),
-    0px 0px 16px rgba(0, 0, 0, 0.18),
-    0px 0px 28px rgba(0, 0, 0, 0.24),
-    0px 0px 44px rgba(0, 0, 0, 0.30);
-    /* TODO: give me a real look — background: var(--accent); color: #fff;
-       padding; border: none; border-radius; cursor: pointer; and a
-       :hover transition */
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25),
+    0px 0px 16px rgba(0, 0, 0, 0.35),
+    0px 0px 28px rgba(0, 0, 0, 0.45);
 
-    transition: transform 0.3s ease-in-out;
-    background-color: aliceblue;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: var(--accent);
 }
 
 button:hover {
     transform: scale(1.1);
-    background-color: rgb(255, 189, 189);
+    background-color: #6366f1;
 }
 
 /* ---------- Results page ---------- */
