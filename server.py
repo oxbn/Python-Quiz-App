@@ -13,22 +13,25 @@ def load_questions():
         return json.load(f)
 
 
+try:
+    questions_data = load_questions()
+except FileNotFoundError:
+    questions_data = None
+
+
 @app.route('/')
-def load_json():
-    try:
-        data = load_questions()
-        return render_template('index.html', data=data)
-    except FileNotFoundError:
+def index():
+    if questions_data is None:
         return jsonify({"error": "File not found"}), 404
+    return render_template('index.html', data=questions_data)
 
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    try:
-        data = load_questions()
-    except FileNotFoundError:
+    if questions_data is None:
         return jsonify({"error": "File not found"}), 404
 
+    data = questions_data
     questions = data['questions']
     results = []
     score = 0
@@ -60,4 +63,5 @@ def submit():
                            total=len(questions), percentage=percentage)
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
