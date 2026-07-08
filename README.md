@@ -5,7 +5,13 @@ This app allows users to quiz themselves or others with custom questions the use
 I created this project because of the lack of free, straightforward quiz apps that allow you to have unlimited questions. I was able to turn this problem of mine into a learning opportunity, which allowed me to advance my technical skills. This project was fun to make, and it helped me understand how to create web apps, and how to customize the apperance of the web apps.
 
 # Dependencies:
-- Flask==3.1.3 or newer
+- blinker==1.9.0
+- click==8.4.2
+- Flask==3.1.3
+- itsdangerous==2.2.0
+- Jinja2==3.1.6
+- MarkupSafe==3.0.3
+- Werkzeug==3.1.8
 
 # Tech stack:
 - Python
