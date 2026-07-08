@@ -13,25 +13,22 @@ def load_questions():
         return json.load(f)
 
 
-try:
-    questions_data = load_questions()
-except FileNotFoundError:
-    questions_data = None
-
-
 @app.route('/')
 def index():
-    if questions_data is None:
+    try:
+        data = load_questions()
+        return render_template('index.html', data=data)
+    except FileNotFoundError:
         return jsonify({"error": "File not found"}), 404
-    return render_template('index.html', data=questions_data)
 
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    if questions_data is None:
+    try:
+        data = load_questions()
+    except FileNotFoundError:
         return jsonify({"error": "File not found"}), 404
 
-    data = questions_data
     questions = data['questions']
     results = []
     score = 0
