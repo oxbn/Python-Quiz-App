@@ -3,34 +3,42 @@
 {% block title %}Quiz App{% endblock %}
 
 {% block content %}
-<h1>QUIZ</h1>
+<header class="glass masthead">
+    <p class="eyebrow">Pop quiz</p>
+    <h1>Quiz</h1>
+    <p class="subtitle" id="progress-text" data-total="{{ data.questions|length }}">
+        {{ data.questions|length }} question{{ 's' if data.questions|length != 1 else '' }}
+    </p>
+</header>
 
-<form action="/submit" method="post">
+<form action="/submit" method="post" id="quiz-form">
     {% for q in data.questions %}
     {% set qnum = loop.index %}
-    <div class="question">
-        <span class="type-label">
-            {% if q.type == 0 %}Short Answer{% else %}Multiple Choice{% endif %}
-        </span>
-        <p class="prompt">{{ qnum }}. {{ q.question }}</p>
+    <section class="glass question">
+        <div class="question-head">
+            <span class="qnum">{{ '%02d' | format(qnum) }}</span>
+            <span class="type-label">
+                {% if q.type == 0 %}Short answer{% else %}Multiple choice{% endif %}
+            </span>
+        </div>
+        <p class="prompt">{{ q.question }}</p>
 
         {% if q.type == 0 %}
-            <input type="text" name="q{{ qnum }}" placeholder="Your answer">
+            <input type="text" class="answer-line" name="q{{ qnum }}" placeholder="Type your answer" autocomplete="off">
         {% else %}
-            <ul>
+            <div class="chip-grid">
                 {% for option in q.options %}
-                <li>
-                    <label>
-                        <input type="radio" name="q{{ qnum }}" value="{{ loop.index0 }}">
-                        {{ option }}
-                    </label>
-                </li>
+                <label class="chip">
+                    <input type="radio" name="q{{ qnum }}" value="{{ loop.index0 }}">
+                    <span class="chip-check" aria-hidden="true"></span>
+                    <span class="chip-label">{{ option }}</span>
+                </label>
                 {% endfor %}
-            </ul>
+            </div>
         {% endif %}
-    </div>
+    </section>
     {% endfor %}
 
-    <button type="submit">Submit answers</button>
+    <button type="submit" class="pill-btn pill-btn-primary">Submit answers</button>
 </form>
 {% endblock %}
