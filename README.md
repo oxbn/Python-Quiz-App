@@ -1,4 +1,5 @@
 # Python MCQ / FRQ Quiz App!
+Quickstart: (pip install -r requirements.txt && python server.py)
 
 This app allows users to quiz themselves or others with custom questions the user inputs into the questions.json file. A multiple choice (1,2,3,4) and free response (A couple words/phrases) question format are the only types of questions this app can handle at the moment. 
 
